@@ -7,42 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C4903421631BB3B00D0C1E9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C49033C1631BB3B00D0C1E9 /* Default-568h@2x.png */; };
+		9C4903431631BB3B00D0C1E9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C49033D1631BB3B00D0C1E9 /* Default.png */; };
+		9C4903441631BB3B00D0C1E9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C49033E1631BB3B00D0C1E9 /* Default@2x.png */; };
+		9C4903451631BB3B00D0C1E9 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 9C49033F1631BB3B00D0C1E9 /* en.lproj */; };
+		9C4903461631BB3B00D0C1E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4903401631BB3B00D0C1E9 /* main.m */; };
 		9CAEE1611631873A00B72E51 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CAEE1601631873A00B72E51 /* UIKit.framework */; };
 		9CAEE1631631873A00B72E51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CAEE1621631873A00B72E51 /* Foundation.framework */; };
 		9CAEE1651631873A00B72E51 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CAEE1641631873A00B72E51 /* CoreGraphics.framework */; };
-		9CAEE16D1631873A00B72E51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEE16C1631873A00B72E51 /* main.m */; };
 		9CAEE18B16319EF400B72E51 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CAEE18A16319EF400B72E51 /* CoreText.framework */; };
 		9CF2C69E1631AF32009C8A53 /* ADAttributedTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF2C69D1631AF32009C8A53 /* ADAttributedTextView.m */; };
 		9CF2C6A21631AF3C009C8A53 /* ADParagraphStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF2C6A11631AF3C009C8A53 /* ADParagraphStyle.m */; };
-		9CF2C6A71631AF47009C8A53 /* HiAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF2C6A41631AF47009C8A53 /* HiAppDelegate.m */; };
-		9CF2C6A81631AF47009C8A53 /* HiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF2C6A61631AF47009C8A53 /* HiViewController.m */; };
-		9CF2C6AA1631AF5D009C8A53 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CF2C6A91631AF5D009C8A53 /* InfoPlist.strings */; };
-		9CF2C6B31631AFB3009C8A53 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF2C6B01631AFB3009C8A53 /* Default-568h@2x.png */; };
-		9CF2C6B41631AFB3009C8A53 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF2C6B11631AFB3009C8A53 /* Default.png */; };
-		9CF2C6B51631AFB3009C8A53 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF2C6B21631AFB3009C8A53 /* Default@2x.png */; };
+		9CF2C6CC1631B08D009C8A53 /* HiAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF2C6C31631B08D009C8A53 /* HiAppDelegate.m */; };
+		9CF2C6CD1631B08D009C8A53 /* HiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF2C6C51631B08D009C8A53 /* HiViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C49033A1631BB3B00D0C1E9 /* ADParagraphStyles-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ADParagraphStyles-Info.plist"; sourceTree = "<group>"; };
+		9C49033B1631BB3B00D0C1E9 /* ADParagraphStyles-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADParagraphStyles-Prefix.pch"; sourceTree = "<group>"; };
+		9C49033C1631BB3B00D0C1E9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9C49033D1631BB3B00D0C1E9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		9C49033E1631BB3B00D0C1E9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		9C49033F1631BB3B00D0C1E9 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
+		9C4903401631BB3B00D0C1E9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9CAEE15C1631873A00B72E51 /* ADParagraphStyles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADParagraphStyles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CAEE1601631873A00B72E51 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9CAEE1621631873A00B72E51 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9CAEE1641631873A00B72E51 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		9CAEE1681631873A00B72E51 /* ADParagraphStyles-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ADParagraphStyles-Info.plist"; sourceTree = "<group>"; };
-		9CAEE16C1631873A00B72E51 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9CAEE16E1631873A00B72E51 /* ADParagraphStyles-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ADParagraphStyles-Prefix.pch"; sourceTree = "<group>"; };
 		9CAEE18A16319EF400B72E51 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		9CF2C69C1631AF32009C8A53 /* ADAttributedTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADAttributedTextView.h; path = ADParagraphStyles/ADAttributedTextView.h; sourceTree = "<group>"; };
 		9CF2C69D1631AF32009C8A53 /* ADAttributedTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADAttributedTextView.m; path = ADParagraphStyles/ADAttributedTextView.m; sourceTree = "<group>"; };
 		9CF2C6A01631AF3C009C8A53 /* ADParagraphStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADParagraphStyle.h; path = ADParagraphStyles/ADParagraphStyle.h; sourceTree = "<group>"; };
 		9CF2C6A11631AF3C009C8A53 /* ADParagraphStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADParagraphStyle.m; path = ADParagraphStyles/ADParagraphStyle.m; sourceTree = "<group>"; };
-		9CF2C6A31631AF47009C8A53 /* HiAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HiAppDelegate.h; sourceTree = "<group>"; };
-		9CF2C6A41631AF47009C8A53 /* HiAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HiAppDelegate.m; sourceTree = "<group>"; };
-		9CF2C6A51631AF47009C8A53 /* HiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HiViewController.h; sourceTree = "<group>"; };
-		9CF2C6A61631AF47009C8A53 /* HiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HiViewController.m; sourceTree = "<group>"; };
-		9CF2C6A91631AF5D009C8A53 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
-		9CF2C6B01631AFB3009C8A53 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		9CF2C6B11631AFB3009C8A53 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		9CF2C6B21631AFB3009C8A53 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		9CF2C6C21631B08D009C8A53 /* HiAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HiAppDelegate.h; path = Example/HiAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		9CF2C6C31631B08D009C8A53 /* HiAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HiAppDelegate.m; path = Example/HiAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		9CF2C6C41631B08D009C8A53 /* HiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HiViewController.h; path = Example/HiViewController.h; sourceTree = SOURCE_ROOT; };
+		9CF2C6C51631B08D009C8A53 /* HiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HiViewController.m; path = Example/HiViewController.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,11 +92,10 @@
 		9CAEE1661631873A00B72E51 /* ADParagraphStylesExample */ = {
 			isa = PBXGroup;
 			children = (
-				9CF2C6A31631AF47009C8A53 /* HiAppDelegate.h */,
-				9CF2C6A41631AF47009C8A53 /* HiAppDelegate.m */,
-				9CF2C6A51631AF47009C8A53 /* HiViewController.h */,
-				9CF2C6A61631AF47009C8A53 /* HiViewController.m */,
-				9CAEE1671631873A00B72E51 /* Supporting Files */,
+				9CF2C6C21631B08D009C8A53 /* HiAppDelegate.h */,
+				9CF2C6C31631B08D009C8A53 /* HiAppDelegate.m */,
+				9CF2C6C41631B08D009C8A53 /* HiViewController.h */,
+				9CF2C6C51631B08D009C8A53 /* HiViewController.m */,
 			);
 			name = ADParagraphStylesExample;
 			path = ADParagraphStyles;
@@ -105,15 +104,16 @@
 		9CAEE1671631873A00B72E51 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9CF2C6A91631AF5D009C8A53 /* InfoPlist.strings */,
-				9CAEE1681631873A00B72E51 /* ADParagraphStyles-Info.plist */,
-				9CAEE16C1631873A00B72E51 /* main.m */,
-				9CAEE16E1631873A00B72E51 /* ADParagraphStyles-Prefix.pch */,
-				9CF2C6B01631AFB3009C8A53 /* Default-568h@2x.png */,
-				9CF2C6B11631AFB3009C8A53 /* Default.png */,
-				9CF2C6B21631AFB3009C8A53 /* Default@2x.png */,
+				9C49033A1631BB3B00D0C1E9 /* ADParagraphStyles-Info.plist */,
+				9C49033B1631BB3B00D0C1E9 /* ADParagraphStyles-Prefix.pch */,
+				9C49033C1631BB3B00D0C1E9 /* Default-568h@2x.png */,
+				9C49033D1631BB3B00D0C1E9 /* Default.png */,
+				9C49033E1631BB3B00D0C1E9 /* Default@2x.png */,
+				9C49033F1631BB3B00D0C1E9 /* en.lproj */,
+				9C4903401631BB3B00D0C1E9 /* main.m */,
 			);
 			name = "Supporting Files";
+			path = ADParagraphStyles;
 			sourceTree = "<group>";
 		};
 		9CAEE1831631874C00B72E51 /* ADParagraphStyles */ = {
@@ -123,6 +123,7 @@
 				9CF2C69D1631AF32009C8A53 /* ADAttributedTextView.m */,
 				9CF2C6A01631AF3C009C8A53 /* ADParagraphStyle.h */,
 				9CF2C6A11631AF3C009C8A53 /* ADParagraphStyle.m */,
+				9CAEE1671631873A00B72E51 /* Supporting Files */,
 			);
 			name = ADParagraphStyles;
 			sourceTree = "<group>";
@@ -179,10 +180,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CF2C6AA1631AF5D009C8A53 /* InfoPlist.strings in Resources */,
-				9CF2C6B31631AFB3009C8A53 /* Default-568h@2x.png in Resources */,
-				9CF2C6B41631AFB3009C8A53 /* Default.png in Resources */,
-				9CF2C6B51631AFB3009C8A53 /* Default@2x.png in Resources */,
+				9C4903421631BB3B00D0C1E9 /* Default-568h@2x.png in Resources */,
+				9C4903431631BB3B00D0C1E9 /* Default.png in Resources */,
+				9C4903441631BB3B00D0C1E9 /* Default@2x.png in Resources */,
+				9C4903451631BB3B00D0C1E9 /* en.lproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,11 +194,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CAEE16D1631873A00B72E51 /* main.m in Sources */,
 				9CF2C69E1631AF32009C8A53 /* ADAttributedTextView.m in Sources */,
 				9CF2C6A21631AF3C009C8A53 /* ADParagraphStyle.m in Sources */,
-				9CF2C6A71631AF47009C8A53 /* HiAppDelegate.m in Sources */,
-				9CF2C6A81631AF47009C8A53 /* HiViewController.m in Sources */,
+				9CF2C6CC1631B08D009C8A53 /* HiAppDelegate.m in Sources */,
+				9CF2C6CD1631B08D009C8A53 /* HiViewController.m in Sources */,
+				9C4903461631BB3B00D0C1E9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
