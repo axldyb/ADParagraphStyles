@@ -17,7 +17,9 @@
 		9CAEE1751631873A00B72E51 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEE1741631873A00B72E51 /* Default@2x.png */; };
 		9CAEE1771631873A00B72E51 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEE1761631873A00B72E51 /* Default-568h@2x.png */; };
 		9CAEE17A1631873A00B72E51 /* HiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEE1791631873A00B72E51 /* HiViewController.m */; };
-		9CAEE17D1631873A00B72E51 /* HiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEE17B1631873A00B72E51 /* HiViewController.xib */; };
+		9CAEE186163187C700B72E51 /* ADAttributedTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEE185163187C700B72E51 /* ADAttributedTextView.m */; };
+		9CAEE18916318AAE00B72E51 /* ADParagraphStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEE18816318AAE00B72E51 /* ADParagraphStyle.m */; };
+		9CAEE18B16319EF400B72E51 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CAEE18A16319EF400B72E51 /* CoreText.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +38,11 @@
 		9CAEE1761631873A00B72E51 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9CAEE1781631873A00B72E51 /* HiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HiViewController.h; sourceTree = "<group>"; };
 		9CAEE1791631873A00B72E51 /* HiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HiViewController.m; sourceTree = "<group>"; };
-		9CAEE17C1631873A00B72E51 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HiViewController.xib; sourceTree = "<group>"; };
+		9CAEE184163187C700B72E51 /* ADAttributedTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADAttributedTextView.h; sourceTree = "<group>"; };
+		9CAEE185163187C700B72E51 /* ADAttributedTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADAttributedTextView.m; sourceTree = "<group>"; };
+		9CAEE18716318AAE00B72E51 /* ADParagraphStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADParagraphStyle.h; sourceTree = "<group>"; };
+		9CAEE18816318AAE00B72E51 /* ADParagraphStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADParagraphStyle.m; sourceTree = "<group>"; };
+		9CAEE18A16319EF400B72E51 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CAEE18B16319EF400B72E51 /* CoreText.framework in Frameworks */,
 				9CAEE1611631873A00B72E51 /* UIKit.framework in Frameworks */,
 				9CAEE1631631873A00B72E51 /* Foundation.framework in Frameworks */,
 				9CAEE1651631873A00B72E51 /* CoreGraphics.framework in Frameworks */,
@@ -56,7 +63,8 @@
 		9CAEE1511631873A00B72E51 = {
 			isa = PBXGroup;
 			children = (
-				9CAEE1661631873A00B72E51 /* ADParagraphStyles */,
+				9CAEE1831631874C00B72E51 /* ADParagraphStyles */,
+				9CAEE1661631873A00B72E51 /* ADParagraphStylesExample */,
 				9CAEE15F1631873A00B72E51 /* Frameworks */,
 				9CAEE15D1631873A00B72E51 /* Products */,
 			);
@@ -73,6 +81,7 @@
 		9CAEE15F1631873A00B72E51 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9CAEE18A16319EF400B72E51 /* CoreText.framework */,
 				9CAEE1601631873A00B72E51 /* UIKit.framework */,
 				9CAEE1621631873A00B72E51 /* Foundation.framework */,
 				9CAEE1641631873A00B72E51 /* CoreGraphics.framework */,
@@ -80,16 +89,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9CAEE1661631873A00B72E51 /* ADParagraphStyles */ = {
+		9CAEE1661631873A00B72E51 /* ADParagraphStylesExample */ = {
 			isa = PBXGroup;
 			children = (
 				9CAEE16F1631873A00B72E51 /* HiAppDelegate.h */,
 				9CAEE1701631873A00B72E51 /* HiAppDelegate.m */,
 				9CAEE1781631873A00B72E51 /* HiViewController.h */,
 				9CAEE1791631873A00B72E51 /* HiViewController.m */,
-				9CAEE17B1631873A00B72E51 /* HiViewController.xib */,
 				9CAEE1671631873A00B72E51 /* Supporting Files */,
 			);
+			name = ADParagraphStylesExample;
 			path = ADParagraphStyles;
 			sourceTree = "<group>";
 		};
@@ -105,6 +114,17 @@
 				9CAEE1761631873A00B72E51 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9CAEE1831631874C00B72E51 /* ADParagraphStyles */ = {
+			isa = PBXGroup;
+			children = (
+				9CAEE184163187C700B72E51 /* ADAttributedTextView.h */,
+				9CAEE185163187C700B72E51 /* ADAttributedTextView.m */,
+				9CAEE18716318AAE00B72E51 /* ADParagraphStyle.h */,
+				9CAEE18816318AAE00B72E51 /* ADParagraphStyle.m */,
+			);
+			name = ADParagraphStyles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,7 +183,6 @@
 				9CAEE1731631873A00B72E51 /* Default.png in Resources */,
 				9CAEE1751631873A00B72E51 /* Default@2x.png in Resources */,
 				9CAEE1771631873A00B72E51 /* Default-568h@2x.png in Resources */,
-				9CAEE17D1631873A00B72E51 /* HiViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +196,8 @@
 				9CAEE16D1631873A00B72E51 /* main.m in Sources */,
 				9CAEE1711631873A00B72E51 /* HiAppDelegate.m in Sources */,
 				9CAEE17A1631873A00B72E51 /* HiViewController.m in Sources */,
+				9CAEE186163187C700B72E51 /* ADAttributedTextView.m in Sources */,
+				9CAEE18916318AAE00B72E51 /* ADParagraphStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,14 +210,6 @@
 				9CAEE16A1631873A00B72E51 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		9CAEE17B1631873A00B72E51 /* HiViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9CAEE17C1631873A00B72E51 /* en */,
-			);
-			name = HiViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
