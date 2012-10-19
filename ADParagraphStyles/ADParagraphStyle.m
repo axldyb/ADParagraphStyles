@@ -16,20 +16,20 @@ static CGFloat kADParagraphStylesStandardFontSize = 12.0f;
 
 - (void)setup
 {
-    self.font           = [UIFont fontWithName:kADParagraphStylesStandardFont size:kADParagraphStylesStandardFontSize];
     self.startTag       = @"<text>";
     self.endTag         = @"</text>";
+    self.font           = [UIFont fontWithName:kADParagraphStylesStandardFont size:kADParagraphStylesStandardFontSize];
     self.color          = [UIColor blackColor];
     self.lineBreakMode  = kCTLineBreakByWordWrapping;
     self.textAlignment  = kCTLeftTextAlignment;
-    self.lineSpacing    = 1.0f;
+    self.lineSpacing    = 1.0;
 }
 
 - (id)initWithStartTag:(NSString *)startTag
                 endTag:(NSString *)endTag
                   font:(UIFont *)font
                  color:(UIColor *)color
-         lineBreakMode:(CTLineBreakMode)lineBrakMode
+         lineBreakMode:(CTLineBreakMode)lineBreakMode
          textAlignment:(CTTextAlignment)textAlignment
            lineSpacing:(CGFloat)lineSpacing
 {
@@ -37,6 +37,41 @@ static CGFloat kADParagraphStylesStandardFontSize = 12.0f;
     if (self)
     {
         [self setup];
+        
+        if (!startTag)
+        {
+            return self;
+        }
+        
+        if (!endTag)
+        {
+            return self;
+        }
+        
+        if (font)
+        {
+            self.font = font;
+        }
+        
+        if (color)
+        {
+            self.color = color;
+        }
+        
+        if (lineBreakMode)
+        {
+            self.lineBreakMode = lineBreakMode;
+        }
+        
+        if (textAlignment)
+        {
+            self.textAlignment = textAlignment;
+        }
+        
+        if (lineSpacing)
+        {
+            self.lineSpacing = lineSpacing;
+        }
     }
     return self;
 }

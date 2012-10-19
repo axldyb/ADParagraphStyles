@@ -26,6 +26,11 @@
 
 - (void)addParagraphStyle:(ADParagraphStyle *)paragraphStyle
 {
+    if (!self.paragraphStyles)
+    {
+        self.paragraphStyles = [[NSMutableArray alloc] init];
+    }
+    
     [self.paragraphStyles addObject:paragraphStyle];
 }
 
@@ -48,17 +53,20 @@
         // Add parameters
         CTTextAlignment paragraphAlignment = paragraphStyle.textAlignment;
         CGFloat lineSpacing = paragraphStyle.lineSpacing;
+        UIColor *color = paragraphStyle.color;
         
         // Convert to CTParagraphStyleSetting
         CTParagraphStyleSetting paragraphSettings[2] =
         {
             {kCTParagraphStyleSpecifierAlignment, sizeof(CTTextAlignment), &paragraphAlignment},
             {kCTParagraphStyleSpecifierLineSpacing, sizeof(CGFloat), &lineSpacing}
+            // Mulig må endres til dictionarry style.
         };
         
         // Add Styles to string
         CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(paragraphSettings, 2);
         CFAttributedStringSetAttribute(styledString, paragraphRange, kCTParagraphStyleAttributeName, paragraphStyle);
+        CFAttributedStringSetAttribute(styledString, paragraphRange, kCTStrokeColorAttributeName, color.CGColor);
         
 #warning Remove tags from text here
     }
@@ -101,7 +109,6 @@
     
     // Create the framesetter with the attributed string.
     CFAttributedStringRef attributedString = [self createStyledText];
-    NSLog(@"%@", attributedString);
     CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString(attributedString);
     CFRelease(attributedString);
     
@@ -119,7 +126,6 @@
     
     // End context
     UIImage *textImage = UIGraphicsGetImageFromCurrentImageContext();
-    NSLog(@"%@", NSStringFromCGSize(textImage.size));
     
     UIImageView *image = [[UIImageView alloc] initWithImage:textImage];
     [self addSubview:image];

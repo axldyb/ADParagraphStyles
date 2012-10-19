@@ -20,11 +20,16 @@
 {
     [super viewDidLoad];
     
-    //ADParagraphStyle
-    
-    
+    ADParagraphStyle *boldParagrapStyle = [[ADParagraphStyle alloc] initWithStartTag:@"<text>"
+                                                                              endTag:@"</text>"
+                                                                                font:[UIFont fontWithName:@"ArialMT" size:12.0f]
+                                                                               color:[UIColor redColor]
+                                                                       lineBreakMode:kCTLineBreakByWordWrapping
+                                                                       textAlignment:kCTTextAlignmentCenter
+                                                                         lineSpacing:1.0];
     
     ADAttributedTextView *textView = [[ADAttributedTextView alloc] initWithFrame:[[UIScreen mainScreen] bounds] andText:[self theText]];
+    [textView addParagraphStyle:boldParagrapStyle];
     textView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:textView];
 }
