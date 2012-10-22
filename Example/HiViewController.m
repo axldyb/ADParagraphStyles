@@ -33,7 +33,7 @@
     // They are only used as references for the paragraph style to know where to apply itself.
     ADParagraphStyle *americanParagrapStyle = [[ADParagraphStyle alloc] initWithStartTag:@"<text>"
                                                                                   endTag:@"</text>"
-                                                                                fontName:kADFontHelveticaBold
+                                                                                fontName:kADFontHelvetica
                                                                                 fontSize:12.0
                                                                                    color:[UIColor blackColor]
                                                                            lineBreakMode:kCTLineBreakByWordWrapping

@@ -18,7 +18,7 @@ static CGFloat kADParagraphStylesStandardFontSize = 12.0f;
 {
     self.startTag       = @"<text>";
     self.endTag         = @"</text>";
-    self.fontName       = kADFontHelvetica;
+    self.fontName       = [self fontAsString:kADFontHelvetica];
     self.fontSize       = kADParagraphStylesStandardFontSize;
     self.color          = [UIColor blackColor];
     self.lineBreakMode  = kCTLineBreakByWordWrapping;

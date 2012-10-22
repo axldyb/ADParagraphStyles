@@ -24,6 +24,7 @@ typedef enum {
     kADFontMarkerFeltThin,
     kADFontMarkerFeltWide
 } kADFontName;
+#warning Move this to its own file.
 
 
 #pragma mark - Interface
@@ -60,6 +61,12 @@ typedef enum {
 
 #warning Create a method to be able to base a new style based on another one.
 
+#warning We want a set of standard tags to use. HTML based?
+
 #warning We want predefined paragraph styles to be able to use the most common styles fast
+
+#warning We want indents and custom placement plus plus
+
+#warning We want kerning and letterspacing and all we can get of geeky typography
 
 @end
