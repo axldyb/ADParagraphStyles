@@ -47,50 +47,109 @@
     // Add styles
     for (ADParagraphStyle *paragraphStyle in self.paragraphStyles)
     {
-        // Calculate range for style
-        CFRange paragraphRange = [self calculateRangeForParagraphStyle:paragraphStyle];
-        
-        // Add parameters
-        CTTextAlignment paragraphAlignment = paragraphStyle.textAlignment;
-        CGFloat lineSpacing = paragraphStyle.lineSpacing;
-        UIColor *color = paragraphStyle.color;
-        
-        // Convert to CTParagraphStyleSetting
-        CTParagraphStyleSetting paragraphSettings[2] =
+        // Repeats for each occurence
+        NSInteger numberOfOccurrences = [self calculateNumberOfOccurrencesOfParagraphStyle:paragraphStyle];
+        for (int i = 0; i < numberOfOccurrences; i++)
         {
-            {kCTParagraphStyleSpecifierAlignment, sizeof(CTTextAlignment), &paragraphAlignment},
-            {kCTParagraphStyleSpecifierLineSpacing, sizeof(CGFloat), &lineSpacing}
-            // Mulig må endres til dictionarry style.
-        };
-        
-        // Add Styles to string
-        CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(paragraphSettings, 2);
-        CFAttributedStringSetAttribute(styledString, paragraphRange, kCTParagraphStyleAttributeName, paragraphStyle);
-        CFAttributedStringSetAttribute(styledString, paragraphRange, kCTStrokeColorAttributeName, color.CGColor);
-        
-#warning Remove tags from text here
+            
+            // Calculate range for style
+            CFRange paragraphRange = [self calculateRangeForParagraphStyle:paragraphStyle];
+            
+            // Addig color
+            UIColor *color = paragraphStyle.color;
+            CFAttributedStringSetAttribute(styledString, paragraphRange, kCTForegroundColorAttributeName, color.CGColor);
+            
+            // Adding font
+            CTFontRef font = CTFontCreateWithName((__bridge CFStringRef)paragraphStyle.fontName, paragraphStyle.fontSize, NULL);
+            CFAttributedStringSetAttribute(styledString, paragraphRange, kCTFontAttributeName, font);
+            
+            // Add parameters
+            CTTextAlignment paragraphAlignment = paragraphStyle.textAlignment;
+            CGFloat lineSpacing = paragraphStyle.lineSpacing;
+            
+            // Convert to CTParagraphStyleSetting
+            CTParagraphStyleSetting paragraphSettings[2] =
+            {
+                {kCTParagraphStyleSpecifierAlignment, sizeof(CTTextAlignment), &paragraphAlignment},
+                {kCTParagraphStyleSpecifierLineSpacing, sizeof(CGFloat), &lineSpacing}
+            };
+            
+            // Add Styles to string
+            CTParagraphStyleRef paragraphStyleRef = CTParagraphStyleCreate(paragraphSettings, 2);
+            CFAttributedStringSetAttribute(styledString, paragraphRange, kCTParagraphStyleAttributeName, paragraphStyleRef);
+            
+            styledString = [self removeParagraphTags:paragraphStyle fromAttributedString:styledString];
+        }
     }
-    
-    return (CFAttributedStringRef)styledString; // Does it work?
+    return (CFAttributedStringRef)styledString;
 }
 
 
 #pragma mark - Calculate Paragraph Style Range
 
 - (CFRange)calculateRangeForParagraphStyle:(ADParagraphStyle *)paragraphStyle
-{
-    NSInteger startTag = [self.text rangeOfString:paragraphStyle.startTag].location;
-    NSInteger endTag = [self.text rangeOfString:paragraphStyle.endTag].location;
+{   
+    NSRange startTagRange = [self.text rangeOfString:paragraphStyle.startTag];
+    NSInteger startTag = startTagRange.location;
+    
+    NSRange endTagRange = [self.text rangeOfString:paragraphStyle.endTag];
+    NSInteger endTag = endTagRange.location - startTagRange.location;
     
     if (startTag == NSNotFound || endTag == NSNotFound)
     {
         NSLog(@"ERROR: Tags not proppely set");
-    } else {
-        NSRange range = [self.text rangeOfString:paragraphStyle.startTag];
-        NSString *substring = [[self.text substringFromIndex:NSMaxRange(range)] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        NSLog(@"Paragraph style set to text: %@", substring);
     }
-    return CFRangeMake(startTag, endTag);
+    else
+    {
+        NSRange range = NSMakeRange(startTag + startTagRange.length, endTag - endTagRange.length + 1);
+        NSLog(@"Paragraph style set to text: %@", [self.text substringWithRange:range]);
+    }
+    
+    CFRange finishedRange = CFRangeMake(startTag, endTag);
+    return finishedRange;
+}
+
+- (NSInteger)calculateNumberOfOccurrencesOfParagraphStyle:(ADParagraphStyle *)paragraphStyle
+{
+    NSUInteger count = 0;
+    NSUInteger length = [self.text length];
+    NSRange range = NSMakeRange(0, length);
+    while(range.location != NSNotFound)
+    {
+        range = [self.text  rangeOfString:paragraphStyle.startTag options:0 range:range];
+        if(range.location != NSNotFound)
+        {
+            range = NSMakeRange(range.location + range.length, length - (range.location + range.length));
+            count++; 
+        }
+    }
+    return count;
+}
+
+
+#pragma mark - Remove tags from displaying text
+
+- (CFMutableAttributedStringRef)removeParagraphTags:(ADParagraphStyle *)paragraphStyle fromAttributedString:(CFMutableAttributedStringRef)string
+{
+    NSRange startTagRange = [self.text rangeOfString:paragraphStyle.startTag];
+    NSString *replacementStartString = @"";
+    CFStringRef replacementStartFormattedString = (__bridge CFStringRef)replacementStartString;
+    CFAttributedStringReplaceString (string, CFRangeMake(startTagRange.location, startTagRange.length), replacementStartFormattedString);
+    
+    NSRange endTagRange = [self.text rangeOfString:paragraphStyle.endTag];
+    NSString *replacementEndString = @"";
+    CFStringRef replacementEndFormattedString = (__bridge CFStringRef)replacementEndString;
+    CFAttributedStringReplaceString (string, CFRangeMake(endTagRange.location - endTagRange.length + 1, endTagRange.length), replacementEndFormattedString);
+    
+    int startTagLocation = startTagRange.location;
+    int startTagLenght = startTagRange.length;
+    self.text = [self.text stringByReplacingCharactersInRange:NSMakeRange(startTagLocation, startTagLenght) withString:@""];
+    
+    int endTagLocation = endTagRange.location;
+    int endTagLenght = endTagRange.length;
+    self.text = [self.text stringByReplacingCharactersInRange:NSMakeRange(endTagLocation - endTagLenght, endTagLenght) withString:@""];
+    
+    return string;
 }
 
 

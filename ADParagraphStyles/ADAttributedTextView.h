@@ -15,6 +15,10 @@
 
 @property (nonatomic, strong) NSMutableArray *paragraphStyles;
 
+#warning We want a padding property
+
+#warning The text view must calculate its size in case we want to display it inside a scroll view.
+
 - (id)initWithFrame:(CGRect)frame andText:(NSString *)text; // And paragraphstyles maybe?
 
 - (void)addParagraphStyle:(ADParagraphStyle *)paragraphStyle;
