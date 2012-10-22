@@ -18,7 +18,8 @@ static CGFloat kADParagraphStylesStandardFontSize = 12.0f;
 {
     self.startTag       = @"<text>";
     self.endTag         = @"</text>";
-    self.font           = [UIFont fontWithName:kADParagraphStylesStandardFont size:kADParagraphStylesStandardFontSize];
+    self.fontName       = kADFontHelvetica;
+    self.fontSize       = kADParagraphStylesStandardFontSize;
     self.color          = [UIColor blackColor];
     self.lineBreakMode  = kCTLineBreakByWordWrapping;
     self.textAlignment  = kCTLeftTextAlignment;
@@ -27,7 +28,8 @@ static CGFloat kADParagraphStylesStandardFontSize = 12.0f;
 
 - (id)initWithStartTag:(NSString *)startTag
                 endTag:(NSString *)endTag
-                  font:(UIFont *)font
+                fontName:(kADFontName)fontName
+              fontSize:(CGFloat)fontSize 
                  color:(UIColor *)color
          lineBreakMode:(CTLineBreakMode)lineBreakMode
          textAlignment:(CTTextAlignment)textAlignment
@@ -38,19 +40,29 @@ static CGFloat kADParagraphStylesStandardFontSize = 12.0f;
     {
         [self setup];
         
-        if (!startTag)
+        if (startTag)
         {
-            return self;
+            self.startTag = startTag;
         }
         
-        if (!endTag)
+        if (endTag)
         {
-            return self;
+            self.endTag = endTag;
         }
         
-        if (font)
+        if (fontName)
         {
-            self.font = font;
+            self.fontName = [self fontAsString:fontName];
+        }
+        
+        if (fontSize)
+        {
+            self.fontSize = fontSize;
+            
+            if (self.fontSize == 0)
+            {
+                self.fontSize = kADParagraphStylesStandardFontSize;
+            }
         }
         
         if (color)
@@ -75,4 +87,67 @@ static CGFloat kADParagraphStylesStandardFontSize = 12.0f;
     }
     return self;
 }
+
+- (NSString *)fontAsString:(kADFontName)fontKey
+{
+    NSString *fontName = nil;
+    
+    switch (fontKey)
+    {
+        case kADFontHelvetica:
+            fontName = @"Helvetica";
+            break;
+            
+        case kADFontHelveticaBold:
+            fontName = @"Helvetica-Bold";
+            break;
+            
+        case kADFontHelveticaOblique:
+            fontName = @"Helvetica-Oblique";
+            break;
+            
+        case kADFontHelveticaBoldOblique:
+            fontName = @"Helvetica-BoldOblique";
+            break;
+            
+        case kADFontArial:
+            fontName = @"ArialMT";
+            break;
+            
+        case kADFontArialBold:
+            fontName = @"Arial-BoldMT";
+            break;
+            
+        case kADFontArialItalic:
+            fontName = @"Arial-ItalicMT";
+            break;
+            
+        case kADFontArialBoldItalic:
+            fontName = @"Arial-BoldItalicMT";
+            break;
+            
+        case kADFontAmericanTypewriter:
+            fontName = @"AmericanTypewriter";
+            break;
+            
+        case kADFontAmericanTypewriterBold:
+            fontName = @"AmericanTypewriter-Bold";
+            break;
+            
+        case kADFontMarkerFeltThin:
+            fontName = @"MarkerFelt-Thin";
+            break;
+            
+        case kADFontMarkerFeltWide:
+            fontName = @"MarkerFelt-Wide";
+            break;
+            
+        default:
+            fontName = kADParagraphStylesStandardFont;
+            break;
+    }
+    
+    return fontName;
+}
+
 @end
