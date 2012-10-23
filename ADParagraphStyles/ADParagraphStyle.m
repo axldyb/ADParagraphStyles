@@ -14,79 +14,105 @@ static CGFloat kADParagraphStylesStandardFontSize = 12.0f;
 
 @implementation ADParagraphStyle
 
-- (void)setup
-{
-    self.startTag       = @"<text>";
-    self.endTag         = @"</text>";
-    self.fontName       = [self fontAsString:kADFontHelvetica];
-    self.fontSize       = kADParagraphStylesStandardFontSize;
-    self.color          = [UIColor blackColor];
-    self.lineBreakMode  = kCTLineBreakByWordWrapping;
-    self.textAlignment  = kCTLeftTextAlignment;
-    self.lineSpacing    = 1.0;
-}
-
 - (id)initWithStartTag:(NSString *)startTag
                 endTag:(NSString *)endTag
-                fontName:(kADFontName)fontName
-              fontSize:(CGFloat)fontSize 
-                 color:(UIColor *)color
-         lineBreakMode:(CTLineBreakMode)lineBreakMode
-         textAlignment:(CTTextAlignment)textAlignment
-           lineSpacing:(CGFloat)lineSpacing
 {
     self = [super init];
     if (self)
     {
-        [self setup];
-        
-        if (startTag)
-        {
-            self.startTag = startTag;
-        }
-        
-        if (endTag)
-        {
-            self.endTag = endTag;
-        }
-        
-        if (fontName)
-        {
-            self.fontName = [self fontAsString:fontName];
-        }
-        
-        if (fontSize)
-        {
-            self.fontSize = fontSize;
-            
-            if (self.fontSize == 0)
-            {
-                self.fontSize = kADParagraphStylesStandardFontSize;
-            }
-        }
-        
-        if (color)
-        {
-            self.color = color;
-        }
-        
-        if (lineBreakMode)
-        {
-            self.lineBreakMode = lineBreakMode;
-        }
-        
-        if (textAlignment)
-        {
-            self.textAlignment = textAlignment;
-        }
-        
-        if (lineSpacing)
-        {
-            self.lineSpacing = lineSpacing;
-        }
+        self.startTag = startTag;
+        self.endTag = endTag;
     }
     return self;
 }
+
+- (id)initWithStartTag:(NSString *)startTag endTag:(NSString *)endTag andBasedOnStyle:(ADParagraphStyle *)baseStyle
+{
+    self = [super init];
+    if (self)
+    {
+        self.startTag       = startTag;
+        self.endTag         = endTag;
+        self.fontName       = baseStyle.fontName;
+        self.fontSize       = baseStyle.fontSize;
+        self.color          = baseStyle.color;
+        self.lineBreakMode  = baseStyle.lineBreakMode;
+        self.textAlignment  = baseStyle.textAlignment;
+        self.lineSpacing    = baseStyle.lineSpacing;
+    }
+    return self;
+}
+
+#pragma mark - Standard values
+
+- (kADFontName)fontName
+{
+    if (_fontName)
+    {
+        return _fontName;
+    }
+    
+    _fontName = kADFontHelvetica;
+    return _fontName;
+}
+
+- (CGFloat)fontSize
+{
+    if (_fontSize)
+    {
+        return _fontSize;
+    }
+    
+    _fontSize = kADParagraphStylesStandardFontSize;
+    return _fontSize;
+}
+
+- (UIColor *)color
+{
+    if (_color)
+    {
+        return _color;
+    }
+    
+    _color = [UIColor blackColor];
+    return _color;
+}
+
+- (CTLineBreakMode)lineBreakMode
+{
+    if (_lineBreakMode)
+    {
+        return _lineBreakMode;
+    }
+    
+    _lineBreakMode = kCTLineBreakByWordWrapping;
+    return _lineBreakMode;
+}
+
+- (CTTextAlignment)textAlignment
+{
+    if (_textAlignment)
+    {
+        return _textAlignment;
+    }
+    
+    _textAlignment = kCTLeftTextAlignment;
+    return _textAlignment;
+}
+
+- (CGFloat)lineSpacing
+{
+    if (_lineSpacing)
+    {
+         return _lineSpacing;
+    }
+    
+    _lineSpacing = 1.0;
+    return _lineSpacing;
+}
+
+
+#pragma mark - Font as string
 
 - (NSString *)fontAsString:(kADFontName)fontKey
 {

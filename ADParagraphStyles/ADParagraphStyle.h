@@ -31,33 +31,68 @@ typedef enum {
 
 @interface ADParagraphStyle : NSObject
 
+
+/// ---------------------------------
+/// /** @name Apperance */
+/// ---------------------------------
+
+/**
+ Start tag
+ */
 @property (nonatomic, strong) NSString *startTag;
 
+/**
+ End tag
+ */
 @property (nonatomic, strong) NSString *endTag;
 
-// Font
-@property (nonatomic, strong) NSString *fontName;
+/**
+ Font name
+ */
+@property (nonatomic, assign) kADFontName fontName;
 
-// Font size
+/**
+ Font size
+ */
 @property (nonatomic, assign) CGFloat fontSize;
 
-// Coloring
+/**
+ Color
+ */
 @property (nonatomic, strong) UIColor *color;
 
-//Formatting
+
+/// ---------------------------------
+/// /** @name Formatting */
+/// ---------------------------------
+
+/**
+ Line break mode
+ */
 @property (nonatomic, assign) CTLineBreakMode   lineBreakMode;
+
+/**
+ Text alignment
+ */
 @property (nonatomic, assign) CTTextAlignment   textAlignment;
+
+/**
+ Line spacing
+ */
 @property (nonatomic, assign) CGFloat           lineSpacing;
+
+/**
+ First line indent
+ */
 //@property (nonatomic, assign) CGFloat           firstLineHeadIndent;
 
-- (id)initWithStartTag:(NSString *)startTag
-                endTag:(NSString *)endTag
-              fontName:(kADFontName)fontName
-              fontSize:(CGFloat)fontSize
-                 color:(UIColor *)color
-         lineBreakMode:(CTLineBreakMode)lineBrakMode
-         textAlignment:(CTTextAlignment)textAlignment
-           lineSpacing:(CGFloat)lineSpacing;
+
+
+- (id)initWithStartTag:(NSString *)startTag endTag:(NSString *)endTag;
+
+- (id)initWithStartTag:(NSString *)startTag endTag:(NSString *)endTag andBasedOnStyle:(ADParagraphStyle *)baseStyle;
+
+- (NSString *)fontAsString:(kADFontName)fontKey;
 
 #warning Create a method to be able to base a new style based on another one.
 
