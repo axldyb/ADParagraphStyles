@@ -48,3 +48,9 @@ static NSString * const kADTagEndText = @"</text>";
  */
 static NSString * const kADTagStartBold = @"<bold>";
 static NSString * const kADTagEndBold = @"</bold>";
+
+/**
+ Paragraph tag
+ */
+static NSString * const kADTagStartParagraph = @"<p>";
+static NSString * const kADTagEndParagraph = @"</p>";

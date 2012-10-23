@@ -77,16 +77,18 @@
             // Add parameters
             CTTextAlignment paragraphAlignment = paragraphStyle.textAlignment;
             CGFloat lineSpacing = paragraphStyle.lineSpacing;
+            CGFloat firstLineIndent = paragraphStyle.firstLineIndent;
             
             // Convert to CTParagraphStyleSetting
-            CTParagraphStyleSetting paragraphSettings[2] =
+            CTParagraphStyleSetting paragraphSettings[3] =
             {
                 {kCTParagraphStyleSpecifierAlignment, sizeof(CTTextAlignment), &paragraphAlignment},
+                {kCTParagraphStyleSpecifierFirstLineHeadIndent, sizeof(CGFloat), &firstLineIndent},
                 {kCTParagraphStyleSpecifierLineSpacing, sizeof(CGFloat), &lineSpacing}
             };
             
             // Add Styles to string
-            CTParagraphStyleRef paragraphStyleRef = CTParagraphStyleCreate(paragraphSettings, 2);
+            CTParagraphStyleRef paragraphStyleRef = CTParagraphStyleCreate(paragraphSettings, 3);
             CFAttributedStringSetAttribute(styledString, paragraphRange, kCTParagraphStyleAttributeName, paragraphStyleRef);
             
             styledString = [self removeParagraphTags:paragraphStyle fromAttributedString:styledString];

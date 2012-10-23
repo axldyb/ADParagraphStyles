@@ -33,27 +33,27 @@ typedef enum {
 /**
  Start tag
  */
-@property (nonatomic, strong) NSString *startTag;
+@property (nonatomic, strong) NSString  *startTag;
 
 /**
  End tag
  */
-@property (nonatomic, strong) NSString *endTag;
+@property (nonatomic, strong) NSString  *endTag;
 
 /**
  Font name
  */
-@property (nonatomic, strong) NSString *fontName;
+@property (nonatomic, strong) NSString  *fontName;
 
 /**
  Font size
  */
-@property (nonatomic, assign) CGFloat fontSize;
+@property (nonatomic, assign) CGFloat   fontSize;
 
 /**
  Color
  */
-@property (nonatomic, strong) UIColor *color;
+@property (nonatomic, strong) UIColor   *color;
 
 
 /// ---------------------------------
@@ -78,7 +78,7 @@ typedef enum {
 /**
  First line indent
  */
-//@property (nonatomic, assign) CGFloat           firstLineHeadIndent;
+@property (nonatomic, assign) CGFloat           firstLineIndent;
 
 
 /// ---------------------------------
