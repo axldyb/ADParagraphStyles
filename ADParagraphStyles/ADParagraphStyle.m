@@ -49,13 +49,11 @@
         switch (paragraphStyle)
         {
             case kADParagraphStyleStandard:
-                self.startTag = kADTagStartText;
-                self.endTag = kADTagEndText;
+                self = [self initWithStartTag:kADTagStartText endTag:kADTagEndText];
                 break;
                 
             case kADParagraphStyleBold:
-                self.startTag = kADTagStartBold;
-                self.endTag = kADTagEndBold;
+                self = [self initWithStartTag:kADTagStartBold endTag:kADTagEndBold];
                 self.fontName = kADFontHelveticaBold;
                 break;
                 

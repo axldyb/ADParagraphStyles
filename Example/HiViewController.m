@@ -20,14 +20,15 @@
 {
     [super viewDidLoad];
     
+    // Add a scrollview to hold the text view
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.view addSubview:scrollView];
+    
     // The text we want to display
     NSString *stringToDisplay = [self theText];
     
     // Our text view to display text. Can be initialized to prefered size.
-    ADAttributedTextView *textView = [[ADAttributedTextView alloc] initWithFrame:[[UIScreen mainScreen] bounds] andText:stringToDisplay];
-    
-    // We want some padding to keep the text from the edge of the text view
-    textView.padding = 10.0f;
+    ADAttributedTextView *textView = [[ADAttributedTextView alloc] initWithFrame:CGRectMake(0, 0, 320, 480) text:stringToDisplay padding:15.0f];
     
     // Adding background color
     textView.backgroundColor = [UIColor whiteColor];
@@ -36,12 +37,10 @@
     // They are only used as references for the paragraph style to know where to apply itself.
     ADParagraphStyle *americanParagrapStyle = [[ADParagraphStyle alloc] initWithStartTag:@"<text>" endTag:@"</text>"];
     
-    // This style creates bold text.
-    ADParagraphStyle *boldParagrapStyle = [[ADParagraphStyle alloc] initWithStartTag:@"<bold>" endTag:@"</bold>"];
-    boldParagrapStyle.fontName = kADFontHelveticaBold;
-    boldParagrapStyle.color = [UIColor redColor];
+    // This style is a standard style and creates bold text.
+    ADParagraphStyle *boldParagrapStyle = [[ADParagraphStyle alloc] initAsParagraphStyle:kADParagraphStyleBold];
     
-    // This style is based on the previous style
+    // This style is based on the previous style with custom color
     ADParagraphStyle *blueBoldParagraphStyle = [[ADParagraphStyle alloc] initWithStartTag:@"<blue>" endTag:@"</blue>" andBasedOnStyle:boldParagrapStyle];
     blueBoldParagraphStyle.color = [UIColor blueColor];
     
@@ -50,8 +49,9 @@
     [textView addParagraphStyle:boldParagrapStyle];
     [textView addParagraphStyle:blueBoldParagraphStyle];
     
-    // Add text view to our main view
-    [self.view addSubview:textView];
+    // Add text view to our scroll view
+    [scrollView addSubview:textView];
+    scrollView.contentSize = textView.frame.size;
 }
 
 - (NSString *)theText
