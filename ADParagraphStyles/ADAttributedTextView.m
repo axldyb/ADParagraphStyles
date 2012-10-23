@@ -157,14 +157,20 @@
 
 -(void)drawRect:(CGRect)rect
 {
+    // Set up frame
+    CGRect drawingFrame;
+    drawingFrame.origin.x = 0 + self.padding;
+    drawingFrame.origin.y = 0 + self.padding;
+    drawingFrame.size.width = self.frame.size.width - (self.padding * 2);
+    drawingFrame.size.height = self.frame.size.height - (self.padding * 2);
+    
     // Create Context
-    UIGraphicsBeginImageContext(self.frame.size);
+    //UIGraphicsBeginImageContext(drawingFrame.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
 
-    
     // Initialize a rectangular path.
     CGMutablePathRef path = CGPathCreateMutable();
-    CGPathAddRect(path, NULL, self.frame);
+    CGPathAddRect(path, NULL, drawingFrame);
     
     // Create the framesetter with the attributed string.
     CFAttributedStringRef attributedString = [self createStyledText];

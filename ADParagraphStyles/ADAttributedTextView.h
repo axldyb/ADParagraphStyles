@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong) NSMutableArray *paragraphStyles;
 
-#warning We want a padding property
+@property (nonatomic, assign) CGFloat padding;
 
 #warning The text view must calculate its size in case we want to display it inside a scroll view.
 

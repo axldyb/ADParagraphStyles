@@ -26,6 +26,9 @@
     // Our text view to display text. Can be initialized to prefered size.
     ADAttributedTextView *textView = [[ADAttributedTextView alloc] initWithFrame:[[UIScreen mainScreen] bounds] andText:stringToDisplay];
     
+    // We want some padding to keep the text from the edge of the text view
+    textView.padding = 10.0f;
+    
     // Adding background color
     textView.backgroundColor = [UIColor whiteColor];
     
