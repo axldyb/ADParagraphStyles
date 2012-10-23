@@ -31,3 +31,20 @@ static NSString * const kADFontMarkerFeltWide =             @"MarkerFelt-Wide";
 /// ---------------------------------
 
 static CGFloat const kADParagraphStylesStandardFontSize = 12.0f;
+
+
+/// ---------------------------------
+/// /** @name Standard tags */
+/// ---------------------------------
+
+/**
+ Text tag
+ */
+static NSString * const kADTagStartText = @"<text>";
+static NSString * const kADTagEndText = @"</text>";
+
+/**
+ Bold tag
+ */
+static NSString * const kADTagStartBold = @"<bold>";
+static NSString * const kADTagEndBold = @"</bold>";

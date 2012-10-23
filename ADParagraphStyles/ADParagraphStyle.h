@@ -10,6 +10,17 @@
 #import "ParagraphStyleConstants.h"
 
 
+/// ---------------------------------
+/// /** @name Standard Paragraph Styles */
+/// ---------------------------------
+
+#pragma mark - Standard Paragraph Styles
+
+typedef enum {
+    kADParagraphStyleStandard,
+    kADParagraphStyleBold
+} kADParagraphStyle;
+
 #pragma mark - Interface
 
 @interface ADParagraphStyle : NSObject
@@ -83,6 +94,17 @@
  Init new style based on existing style
  */
 - (id)initWithStartTag:(NSString *)startTag endTag:(NSString *)endTag andBasedOnStyle:(ADParagraphStyle *)baseStyle;
+
+/**
+ Init a standard style
+ 
+ The options are:
+    kADParagraphStyleStandard (surround text with <text> and </text>)
+    kADParagraphStyleBold (surround text with <bold> and </bold>)
+ 
+ @param paragraphStyle The choosen standard paragraph style
+ */
+- (id)initAsParagraphStyle:(kADParagraphStyle)paragraphStyle;
 
 
 #warning We want a set of standard tags to use. HTML based?

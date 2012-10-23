@@ -41,6 +41,32 @@
     return self;
 }
 
+- (id)initAsParagraphStyle:(kADParagraphStyle)paragraphStyle
+{
+    self = [super init];
+    if (self)
+    {
+        switch (paragraphStyle)
+        {
+            case kADParagraphStyleStandard:
+                self.startTag = kADTagStartText;
+                self.endTag = kADTagEndText;
+                break;
+                
+            case kADParagraphStyleBold:
+                self.startTag = kADTagStartBold;
+                self.endTag = kADTagEndBold;
+                self.fontName = kADFontHelveticaBold;
+                break;
+                
+            default:
+                break;
+        }
+        
+    }
+    return self;
+}
+
 #pragma mark - Standard values
 
 - (NSString *)fontName
