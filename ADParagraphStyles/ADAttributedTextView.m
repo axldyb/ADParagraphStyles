@@ -97,7 +97,7 @@
     
     if (startTag == NSNotFound || endTag == NSNotFound)
     {
-        NSLog(@"ERROR: Tags not proppely set");
+        NSLog(@"ERROR: Tags not proppely set (%@ and %@)", paragraphStyle.startTag, paragraphStyle.endTag);
     }
     else
     {
