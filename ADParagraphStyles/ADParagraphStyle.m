@@ -9,8 +9,6 @@
 #import <CoreText/CoreText.h>
 #import "ADParagraphStyle.h"
 
-static NSString *kADParagraphStylesStandardFont = @"Helvetica";
-static CGFloat kADParagraphStylesStandardFontSize = 12.0f;
 
 @implementation ADParagraphStyle
 
@@ -45,7 +43,7 @@ static CGFloat kADParagraphStylesStandardFontSize = 12.0f;
 
 #pragma mark - Standard values
 
-- (kADFontName)fontName
+- (NSString *)fontName
 {
     if (_fontName)
     {
@@ -109,71 +107,6 @@ static CGFloat kADParagraphStylesStandardFontSize = 12.0f;
     
     _lineSpacing = 1.0;
     return _lineSpacing;
-}
-
-
-#pragma mark - Font as string
-
-- (NSString *)fontAsString:(kADFontName)fontKey
-{
-    NSString *fontName = nil;
-    
-    switch (fontKey)
-    {
-        case kADFontHelvetica:
-            fontName = @"Helvetica";
-            break;
-            
-        case kADFontHelveticaBold:
-            fontName = @"Helvetica-Bold";
-            break;
-            
-        case kADFontHelveticaOblique:
-            fontName = @"Helvetica-Oblique";
-            break;
-            
-        case kADFontHelveticaBoldOblique:
-            fontName = @"Helvetica-BoldOblique";
-            break;
-            
-        case kADFontArial:
-            fontName = @"ArialMT";
-            break;
-            
-        case kADFontArialBold:
-            fontName = @"Arial-BoldMT";
-            break;
-            
-        case kADFontArialItalic:
-            fontName = @"Arial-ItalicMT";
-            break;
-            
-        case kADFontArialBoldItalic:
-            fontName = @"Arial-BoldItalicMT";
-            break;
-            
-        case kADFontAmericanTypewriter:
-            fontName = @"AmericanTypewriter";
-            break;
-            
-        case kADFontAmericanTypewriterBold:
-            fontName = @"AmericanTypewriter-Bold";
-            break;
-            
-        case kADFontMarkerFeltThin:
-            fontName = @"MarkerFelt-Thin";
-            break;
-            
-        case kADFontMarkerFeltWide:
-            fontName = @"MarkerFelt-Wide";
-            break;
-            
-        default:
-            fontName = kADParagraphStylesStandardFont;
-            break;
-    }
-    
-    return fontName;
 }
 
 @end

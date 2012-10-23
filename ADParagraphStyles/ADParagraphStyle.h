@@ -7,24 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#pragma mark - Fonts
-
-typedef enum {
-    kADFontHelvetica,
-    kADFontHelveticaBold,
-    kADFontHelveticaBoldOblique,
-    kADFontHelveticaOblique,
-    kADFontArial,
-    kADFontArialBold,
-    kADFontArialItalic,
-    kADFontArialBoldItalic,
-    kADFontAmericanTypewriter,
-    kADFontAmericanTypewriterBold,
-    kADFontMarkerFeltThin,
-    kADFontMarkerFeltWide
-} kADFontName;
-#warning Move this to its own file.
+#import "ParagraphStyleConstants.h"
 
 
 #pragma mark - Interface
@@ -49,7 +32,7 @@ typedef enum {
 /**
  Font name
  */
-@property (nonatomic, assign) kADFontName fontName;
+@property (nonatomic, strong) NSString *fontName;
 
 /**
  Font size
@@ -87,14 +70,20 @@ typedef enum {
 //@property (nonatomic, assign) CGFloat           firstLineHeadIndent;
 
 
+/// ---------------------------------
+/// /** @name Initialization */
+/// ---------------------------------
 
+/**
+ Init new style
+ */
 - (id)initWithStartTag:(NSString *)startTag endTag:(NSString *)endTag;
 
+/**
+ Init new style based on existing style
+ */
 - (id)initWithStartTag:(NSString *)startTag endTag:(NSString *)endTag andBasedOnStyle:(ADParagraphStyle *)baseStyle;
 
-- (NSString *)fontAsString:(kADFontName)fontKey;
-
-#warning Create a method to be able to base a new style based on another one.
 
 #warning We want a set of standard tags to use. HTML based?
 

@@ -31,6 +31,7 @@
 		9C49033E1631BB3B00D0C1E9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		9C49033F1631BB3B00D0C1E9 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
 		9C4903401631BB3B00D0C1E9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9C92555516369BDE00C787EB /* ParagraphStyleConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParagraphStyleConstants.h; sourceTree = "<group>"; };
 		9CA511C1163553A500AB2EE6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		9CAEE15C1631873A00B72E51 /* ADParagraphStyles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADParagraphStyles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CAEE1601631873A00B72E51 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -126,6 +127,7 @@
 				9CF2C69D1631AF32009C8A53 /* ADAttributedTextView.m */,
 				9CF2C6A01631AF3C009C8A53 /* ADParagraphStyle.h */,
 				9CF2C6A11631AF3C009C8A53 /* ADParagraphStyle.m */,
+				9C92555516369BDE00C787EB /* ParagraphStyleConstants.h */,
 				9CAEE1671631873A00B72E51 /* Supporting Files */,
 			);
 			name = ADParagraphStyles;

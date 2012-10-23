@@ -60,8 +60,7 @@
             CFAttributedStringSetAttribute(styledString, paragraphRange, kCTForegroundColorAttributeName, color.CGColor);
             
             // Adding font
-            NSString *fontName = [paragraphStyle fontAsString:paragraphStyle.fontName];
-            CTFontRef font = CTFontCreateWithName((__bridge CFStringRef)fontName, paragraphStyle.fontSize, NULL);
+            CTFontRef font = CTFontCreateWithName((__bridge CFStringRef)paragraphStyle.fontName, paragraphStyle.fontSize, NULL);
             CFAttributedStringSetAttribute(styledString, paragraphRange, kCTFontAttributeName, font);
             
             // Add parameters
