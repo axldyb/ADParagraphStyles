@@ -11,13 +11,24 @@
 
 @implementation ADAttributedTextView
 
-- (id)initWithFrame:(CGRect)frame andText:(NSString *)text
+- (id)initWithFrame:(CGRect)frame text:(NSString *)text
 {
     self = [super initWithFrame:frame];
     if (self)
     {
-        self.frame = frame;
         self.text = text;
+        self.frame = frame;
+        
+    }
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame text:(NSString *)text padding:(CGFloat)padding
+{
+    self = [self initWithFrame:frame text:text];
+    if (self)
+    {
+        self.padding = padding;
     }
     return self;
 }
@@ -157,29 +168,34 @@
 
 -(void)drawRect:(CGRect)rect
 {
+    // The string we want to draw
+    CFAttributedStringRef attributedString = [self createStyledText];
+    
+    // Create the framesetter with the attributed string.
+    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString(attributedString);
+    CFRelease(attributedString);
+    
     // Set up frame
     CGRect drawingFrame;
-    drawingFrame.origin.x = 0 + self.padding;
-    drawingFrame.origin.y = 0 + self.padding;
+    drawingFrame.origin.x = self.padding;
+    drawingFrame.origin.y = self.padding;
     drawingFrame.size.width = self.frame.size.width - (self.padding * 2);
-    drawingFrame.size.height = self.frame.size.height - (self.padding * 2);
+    drawingFrame.size.height = 0.0f;
+    drawingFrame.size = CTFramesetterSuggestFrameSizeWithConstraints(framesetter, CFRangeMake(0, 0), nil, drawingFrame.size, nil);
+    
+    // Set calculated size
+    self.actualSize = drawingFrame.size;
     
     // Create Context
-    //UIGraphicsBeginImageContext(drawingFrame.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     // Initialize a rectangular path.
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathAddRect(path, NULL, drawingFrame);
     
-    // Create the framesetter with the attributed string.
-    CFAttributedStringRef attributedString = [self createStyledText];
-    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString(attributedString);
-    CFRelease(attributedString);
-    
     // Flip coordinates
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
-    CGContextTranslateCTM(context, 0, self.frame.size.height);
+    CGContextTranslateCTM(context, 0, drawingFrame.size.height + (self.padding * 2));
     CGContextScaleCTM(context, 1.0, -1.0);
     
     // Create the frame and draw it into the graphics context
@@ -188,12 +204,6 @@
     CTFrameDraw(frame, context);
     CFRelease(frame);
     CGPathRelease(path);
-    
-    // End context
-    UIImage *textImage = UIGraphicsGetImageFromCurrentImageContext();
-    
-    UIImageView *image = [[UIImageView alloc] initWithImage:textImage];
-    [self addSubview:image];
     
     UIGraphicsEndImageContext();
 }

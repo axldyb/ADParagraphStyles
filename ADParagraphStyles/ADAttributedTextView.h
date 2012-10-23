@@ -17,9 +17,14 @@
 
 @property (nonatomic, assign) CGFloat padding;
 
-#warning The text view must calculate its size in case we want to display it inside a scroll view.
+/**
+ After text is drawn this property contains the size of the drawn text view
+ */
+@property (nonatomic, assign) CGSize actualSize;
 
-- (id)initWithFrame:(CGRect)frame andText:(NSString *)text; // And paragraphstyles maybe?
+- (id)initWithFrame:(CGRect)frame text:(NSString *)text; // And paragraphstyles maybe?
+
+- (id)initWithFrame:(CGRect)frame text:(NSString *)text padding:(CGFloat)padding;
 
 - (void)addParagraphStyle:(ADParagraphStyle *)paragraphStyle;
 
