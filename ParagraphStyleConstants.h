@@ -12,18 +12,49 @@
 /// /** @name Font */
 /// ---------------------------------
 
+/**
+ Helvetica
+ */
 static NSString * const kADFontHelvetica =                  @"Helvetica";
 static NSString * const kADFontHelveticaBold =              @"Helvetica-Bold";
 static NSString * const kADFontHelveticaBoldOblique =       @"Helvetica-BoldOblique";
 static NSString * const kADFontHelveticaOblique =           @"Helvetica-Oblique";
+
+/**
+ Arial
+ */
 static NSString * const kADFontArial =                      @"ArialMT";
 static NSString * const kADFontArialBold =                  @"Arial-BoldMT";
 static NSString * const kADFontArialItalic =                @"Arial-ItalicMT";
 static NSString * const kADFontArialBoldItalic =            @"Arial-BoldItalicMT";
+
+/**
+ American Typewriter
+ */
 static NSString * const kADFontAmericanTypewriter =         @"AmericanTypewriter";
 static NSString * const kADFontAmericanTypewriterBold =     @"AmericanTypewriter-Bold";
+
+/**
+ Marker Felt
+ */
 static NSString * const kADFontMarkerFeltThin =             @"MarkerFelt-Thin";
 static NSString * const kADFontMarkerFeltWide =             @"MarkerFelt-Wide";
+
+/**
+ Palatino
+ */
+static NSString * const kADFontPalatinoRoman =              @"Palatino-Roman";
+static NSString * const kADFontPalatinoBold =               @"Palatino-Bold";
+static NSString * const kADFontPalatinoItalic =             @"Palatino-Italic";
+static NSString * const kADFontPalatinoBoldItalic =         @"Palatino-BoldItalic";
+
+/**
+ Times New Roman
+ */
+static NSString * const kADFontTimesNewRoman =              @"TimesNewRomanPSMT";
+static NSString * const kADFontTimesNewRomanBold =          @"TimesNewRomanPS-BoldMT";
+static NSString * const kADFontTimesNewRomanItalic =        @"TimesNewRomanPS-ItalicMT";
+static NSString * const kADFontTimesNewRomanBoldItalic =    @"TimesNewRomanPS-BoldItalicMT";
 
 
 /// ---------------------------------
