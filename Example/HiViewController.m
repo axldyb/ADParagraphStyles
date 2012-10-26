@@ -37,6 +37,7 @@
     // They are only used as references for the paragraph style to know where to apply itself.
     ADParagraphStyle *mainParagrapStyle = [[ADParagraphStyle alloc] initWithStartTag:@"<text>" endTag:@"</text>"];
     mainParagrapStyle.fontName = kADFontPalatinoRoman;
+    mainParagrapStyle.lineBreakMode = kCTLineBreakByWordWrapping;
     
     // This style is a template style and creates bold text.
     ADParagraphStyle *boldParagrapStyle = [[ADParagraphStyle alloc] initWithParagraphStyleTemplate:kADParagraphStyleBold];
