@@ -58,10 +58,19 @@ static NSString * const kADFontTimesNewRomanBoldItalic =    @"TimesNewRomanPS-Bo
 
 
 /// ---------------------------------
-/// /** @name Font size */
+/// /** @name Standard values */
 /// ---------------------------------
 
+/**
+ Font Size
+ */
 static CGFloat const kADParagraphStylesStandardFontSize = 12.0f;
+
+/**
+ Font handle kerning
+ This tag is used to force the use of the fonts kerning table
+ */
+static CGFloat const kADParagraphStylesFontHandleKerning = 0.1337;
 
 
 /// ---------------------------------

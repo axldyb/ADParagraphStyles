@@ -133,4 +133,81 @@
     return _lineSpacing;
 }
 
+- (CGFloat)firstLineIndent
+{
+    if (_firstLineIndent)
+    {
+        return _firstLineIndent;
+    }
+    
+    _firstLineIndent = 0.0;
+    return _firstLineIndent;
+}
+
+- (CGFloat)headIndent
+{
+    if (_headIndent)
+    {
+        return _headIndent;
+    }
+    
+    _headIndent = 0.0;
+    return _headIndent;
+}
+
+- (CGFloat)tailIndent
+{
+    if (_tailIndent)
+    {
+        return _tailIndent;
+    }
+    
+    _tailIndent = 0.0;
+    return _tailIndent;
+}
+
+- (CGFloat)kerning
+{
+    if (_kerning)
+    {
+        return _kerning;
+    }
+    
+    _kerning = kADParagraphStylesFontHandleKerning;
+    return _kerning;
+}
+
+- (CGFloat)glyphs
+{
+    if (_glyphs)
+    {
+        return _glyphs;
+    }
+    
+    _glyphs = 0;
+    return _glyphs;
+}
+
+- (CGFloat)spacing
+{
+    if (_spacing)
+    {
+        return _spacing;
+    }
+    
+    _spacing = 0.0;
+    return _spacing;
+}
+
+- (CGFloat)spacingBefore
+{
+    if (_spacingBefore)
+    {
+        return _spacingBefore;
+    }
+    
+    _spacingBefore = 0.0;
+    return _spacingBefore;
+}
+
 @end

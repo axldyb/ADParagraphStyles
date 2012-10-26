@@ -80,6 +80,41 @@ typedef enum {
  */
 @property (nonatomic, assign) CGFloat           firstLineIndent;
 
+/**
+ Head indent
+ */
+@property (nonatomic, assign) CGFloat           headIndent;
+
+/**
+ Tail indent
+ Calculated from the beginning of the line
+ */
+@property (nonatomic, assign) CGFloat           tailIndent;
+
+/**
+ Kerning
+ WARNING: This sets an equal kerning on every character!
+ An upgrade for this would be to add an algorithm for 
+ automatic kerninglinke InDesign's optical kerning. 
+ For now this is the option we got.
+ */
+@property (nonatomic, assign) CGFloat           kerning;
+
+/**
+ Sets an alternative glyph
+ */
+@property (nonatomic, assign) CGFloat           glyphs;
+
+/**
+ Sets the spacing
+ */
+@property (nonatomic, assign) CGFloat           spacing;
+
+/**
+ Sets the spacing before
+ */
+@property (nonatomic, assign) CGFloat           spacingBefore;
+
 
 /// ---------------------------------
 /// /** @name Initialization */

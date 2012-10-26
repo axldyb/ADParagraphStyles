@@ -74,21 +74,40 @@
             CTFontRef font = CTFontCreateWithName((__bridge CFStringRef)paragraphStyle.fontName, paragraphStyle.fontSize, NULL);
             CFAttributedStringSetAttribute(styledString, paragraphRange, kCTFontAttributeName, font);
             
+            // Adding kerning if it is set
+            if (paragraphStyle.kerning != kADParagraphStylesFontHandleKerning)
+            {
+                NSNumber *kerning = [NSNumber numberWithFloat:paragraphStyle.kerning];
+                CFAttributedStringSetAttribute(styledString, paragraphRange, kCTKernAttributeName, (__bridge CFTypeRef)(kerning));
+            }
+            
+            // Glyphs
+            NSNumber *glyphs = [NSNumber numberWithFloat:paragraphStyle.kerning];
+            CFAttributedStringSetAttribute(styledString, paragraphRange, kCTCharacterShapeAttributeName, (__bridge CFTypeRef)(glyphs));
+            
             // Add parameters
             CTTextAlignment paragraphAlignment = paragraphStyle.textAlignment;
             CGFloat lineSpacing = paragraphStyle.lineSpacing;
             CGFloat firstLineIndent = paragraphStyle.firstLineIndent;
+            CGFloat headIndent = paragraphStyle.headIndent;
+            CGFloat tailIndent = paragraphStyle.tailIndent;
+            CGFloat spacing = paragraphStyle.spacing;
+            CGFloat spacingBefore = paragraphStyle.spacingBefore;
             
             // Convert to CTParagraphStyleSetting
-            CTParagraphStyleSetting paragraphSettings[3] =
+            CTParagraphStyleSetting paragraphSettings[7] =
             {
                 {kCTParagraphStyleSpecifierAlignment, sizeof(CTTextAlignment), &paragraphAlignment},
                 {kCTParagraphStyleSpecifierFirstLineHeadIndent, sizeof(CGFloat), &firstLineIndent},
-                {kCTParagraphStyleSpecifierLineSpacing, sizeof(CGFloat), &lineSpacing}
+                {kCTParagraphStyleSpecifierHeadIndent, sizeof(CGFloat), &headIndent},
+                {kCTParagraphStyleSpecifierTailIndent, sizeof(CGFloat), &tailIndent},
+                {kCTParagraphStyleSpecifierLineSpacing, sizeof(CGFloat), &lineSpacing},
+                {kCTParagraphStyleSpecifierParagraphSpacing, sizeof(CGFloat), &spacing},
+                {kCTParagraphStyleSpecifierParagraphSpacingBefore, sizeof(CGFloat), &spacingBefore}
             };
             
             // Add Styles to string
-            CTParagraphStyleRef paragraphStyleRef = CTParagraphStyleCreate(paragraphSettings, 3);
+            CTParagraphStyleRef paragraphStyleRef = CTParagraphStyleCreate(paragraphSettings, 7);
             CFAttributedStringSetAttribute(styledString, paragraphRange, kCTParagraphStyleAttributeName, paragraphStyleRef);
             
             styledString = [self removeParagraphTags:paragraphStyle fromAttributedString:styledString];
