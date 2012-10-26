@@ -87,6 +87,7 @@
             
             // Add parameters
             CTTextAlignment paragraphAlignment = paragraphStyle.textAlignment;
+            CTLineBreakMode lineBreakMode = paragraphStyle.lineBreakMode;
             CGFloat lineSpacing = paragraphStyle.lineSpacing;
             CGFloat firstLineIndent = paragraphStyle.firstLineIndent;
             CGFloat headIndent = paragraphStyle.headIndent;
@@ -95,9 +96,10 @@
             CGFloat spacingBefore = paragraphStyle.spacingBefore;
             
             // Convert to CTParagraphStyleSetting
-            CTParagraphStyleSetting paragraphSettings[7] =
+            CTParagraphStyleSetting paragraphSettings[8] =
             {
                 {kCTParagraphStyleSpecifierAlignment, sizeof(CTTextAlignment), &paragraphAlignment},
+                {kCTParagraphStyleSpecifierLineBreakMode, sizeof(CTLineBreakMode), &lineBreakMode},
                 {kCTParagraphStyleSpecifierFirstLineHeadIndent, sizeof(CGFloat), &firstLineIndent},
                 {kCTParagraphStyleSpecifierHeadIndent, sizeof(CGFloat), &headIndent},
                 {kCTParagraphStyleSpecifierTailIndent, sizeof(CGFloat), &tailIndent},
@@ -107,7 +109,7 @@
             };
             
             // Add Styles to string
-            CTParagraphStyleRef paragraphStyleRef = CTParagraphStyleCreate(paragraphSettings, 7);
+            CTParagraphStyleRef paragraphStyleRef = CTParagraphStyleCreate(paragraphSettings, 8);
             CFAttributedStringSetAttribute(styledString, paragraphRange, kCTParagraphStyleAttributeName, paragraphStyleRef);
             
             styledString = [self removeParagraphTags:paragraphStyle fromAttributedString:styledString];
@@ -222,9 +224,42 @@
     // Create the frame and draw it into the graphics context
     CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), path, NULL);
     CFRelease(framesetter);
+    CGPathRelease(path);
     CTFrameDraw(frame, context);
     CFRelease(frame);
-    CGPathRelease(path);
+    
+    /*
+    CFArrayRef lineArrayRef = CTFrameGetLines(frame);
+    NSArray *lineArray = CFBridgingRelease(lineArrayRef);
+    
+    NSLog(@"%i", lineArray.count);
+    
+    for (int i = 0; i < lineArray.count; i++)
+    {
+        CTLineRef line = (__bridge CTLineRef)[lineArray objectAtIndex:i];
+        NSAttributedString *attributedLine = (__bridge NSAttributedString *)line;
+        
+        //handle text hyphenation
+        CFRange lineStringRange = CTLineGetStringRange(line);
+        NSRange lineRange = NSMakeRange(lineStringRange.location, lineStringRange.length);
+        NSString* lineString = [self.text substringWithRange:lineRange];
+        static const unichar softHypen = 0x00AD;
+        NSLog(@"%@ -> %i", lineString, lineRange.length);
+        unichar lastChar = [self.text characterAtIndex:lineRange.location + lineRange.length-1];
+        
+        if(softHypen == lastChar) {
+            NSMutableAttributedString* lineAttrString = [[attributedLine attributedSubstringFromRange:lineRange] mutableCopy];
+            NSRange replaceRange = NSMakeRange(lineRange.length-1, 1);
+            [lineAttrString replaceCharactersInRange:replaceRange withString:@"-"];
+            
+            CTLineRef hyphenLine = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)lineAttrString);
+            CTLineRef justifiedLine = CTLineCreateJustifiedLine(hyphenLine, 1.0, drawingFrame.size.width);
+            
+            CTLineDraw(justifiedLine, context);
+        } else {
+            CTLineDraw(line, context);
+        }
+    }*/
     
     UIGraphicsEndImageContext();
 }
