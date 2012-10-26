@@ -35,10 +35,12 @@
     
     // Here we create a paragraph style. The tags is also placed in the text, but will not be displyed.
     // They are only used as references for the paragraph style to know where to apply itself.
-    ADParagraphStyle *americanParagrapStyle = [[ADParagraphStyle alloc] initWithStartTag:@"<text>" endTag:@"</text>"];
+    ADParagraphStyle *mainParagrapStyle = [[ADParagraphStyle alloc] initWithStartTag:@"<text>" endTag:@"</text>"];
+    mainParagrapStyle.fontName = kADFontPalatinoRoman;
     
-    // This style is a standard style and creates bold text.
-    ADParagraphStyle *boldParagrapStyle = [[ADParagraphStyle alloc] initAsParagraphStyle:kADParagraphStyleBold];
+    // This style is a template style and creates bold text.
+    ADParagraphStyle *boldParagrapStyle = [[ADParagraphStyle alloc] initWithParagraphStyleTemplate:kADParagraphStyleBold];
+    boldParagrapStyle.fontName = kADFontPalatinoRoman;
     
     // This style is based on the previous style with custom color
     ADParagraphStyle *blueBoldParagraphStyle = [[ADParagraphStyle alloc] initWithStartTag:@"<blue>" endTag:@"</blue>" andBasedOnStyle:boldParagrapStyle];
@@ -47,10 +49,10 @@
     // This style has a first line indent
     ADParagraphStyle *lineIndentParagraphStyle = [[ADParagraphStyle alloc] initWithStartTag:@"<in>" endTag:@"</in>" andBasedOnStyle:boldParagrapStyle];
     lineIndentParagraphStyle.firstLineIndent = 15.0f;
-    lineIndentParagraphStyle.fontSize = 16.0f;
+    lineIndentParagraphStyle.fontSize = 18.0f;
     
     // Add our paragraph styles to the text view
-    [textView addParagraphStyle:americanParagrapStyle];
+    [textView addParagraphStyle:mainParagrapStyle];
     [textView addParagraphStyle:boldParagrapStyle];
     [textView addParagraphStyle:blueBoldParagraphStyle];
     [textView addParagraphStyle:lineIndentParagraphStyle];
