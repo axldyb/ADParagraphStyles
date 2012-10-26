@@ -32,28 +32,33 @@ typedef enum {
 
 /**
  Start tag
+ Must be set
  */
-@property (nonatomic, strong) NSString  *startTag;
+@property (nonatomic, strong) NSString *startTag;
 
 /**
  End tag
+ Must be set
  */
-@property (nonatomic, strong) NSString  *endTag;
+@property (nonatomic, strong) NSString *endTag;
 
 /**
  Font name
+ Default: kADFontHelvetica
  */
-@property (nonatomic, strong) NSString  *fontName;
+@property (nonatomic, strong) NSString *fontName;
 
 /**
  Font size
+ Default: kADParagraphStylesStandardFontSize (12)
  */
-@property (nonatomic, assign) CGFloat   fontSize;
+@property (nonatomic, assign) CGFloat fontSize;
 
 /**
  Color
+ Default: [UIColor blackColor]
  */
-@property (nonatomic, strong) UIColor   *color;
+@property (nonatomic, strong) UIColor *color;
 
 
 /// ---------------------------------
@@ -62,34 +67,42 @@ typedef enum {
 
 /**
  Line break mode
+ You hardly need to override the default in normal text.
+ This might be overridden by a better hyphenation method in the future.
+ Default: kCTLineBreakByWordWrapping
  */
-@property (nonatomic, assign) CTLineBreakMode   lineBreakMode;
+@property (nonatomic, assign) CTLineBreakMode lineBreakMode;
 
 /**
  Text alignment
+ Default: kCTLeftTextAlignment
  */
-@property (nonatomic, assign) CTTextAlignment   textAlignment;
+@property (nonatomic, assign) CTTextAlignment textAlignment;
 
 /**
  Line spacing
+ Default: 1.0
  */
-@property (nonatomic, assign) CGFloat           lineSpacing;
+@property (nonatomic, assign) CGFloat lineSpacing;
 
 /**
  First line indent
+ Default: 0.0
  */
-@property (nonatomic, assign) CGFloat           firstLineIndent;
+@property (nonatomic, assign) CGFloat firstLineIndent;
 
 /**
  Head indent
+ Default: 0.0
  */
-@property (nonatomic, assign) CGFloat           headIndent;
+@property (nonatomic, assign) CGFloat headIndent;
 
 /**
  Tail indent
  Calculated from the beginning of the line
+ Default: 0.0
  */
-@property (nonatomic, assign) CGFloat           tailIndent;
+@property (nonatomic, assign) CGFloat tailIndent;
 
 /**
  Kerning
@@ -97,23 +110,27 @@ typedef enum {
  An upgrade for this would be to add an algorithm for 
  automatic kerninglinke InDesign's optical kerning. 
  For now this is the option we got.
+ Default: 0.0
  */
-@property (nonatomic, assign) CGFloat           kerning;
+@property (nonatomic, assign) CGFloat kerning;
 
 /**
  Sets an alternative glyph
+ Default: kADParagraphStylesFontHandleKerning
  */
-@property (nonatomic, assign) CGFloat           glyphs;
+@property (nonatomic, assign) CGFloat glyphs;
 
 /**
  Sets the spacing
+ Default: 0.0
  */
-@property (nonatomic, assign) CGFloat           spacing;
+@property (nonatomic, assign) CGFloat spacing;
 
 /**
  Sets the spacing before
+ Default: 0.0
  */
-@property (nonatomic, assign) CGFloat           spacingBefore;
+@property (nonatomic, assign) CGFloat spacingBefore;
 
 
 /// ---------------------------------
