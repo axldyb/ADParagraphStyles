@@ -41,7 +41,7 @@
     return self;
 }
 
-- (id)initAsParagraphStyle:(kADParagraphStyle)paragraphStyle
+- (id)initWithParagraphStyleTemplate:(kADParagraphStyle)paragraphStyle
 {
     self = [super init];
     if (self)

@@ -11,7 +11,7 @@
 
 
 /// ---------------------------------
-/// /** @name Standard Paragraph Styles */
+/// /** @name Template Paragraph Styles */
 /// ---------------------------------
 
 #pragma mark - Standard Paragraph Styles
@@ -96,15 +96,15 @@ typedef enum {
 - (id)initWithStartTag:(NSString *)startTag endTag:(NSString *)endTag andBasedOnStyle:(ADParagraphStyle *)baseStyle;
 
 /**
- Init a standard style
+ Init a template style
  
  The options are:
     kADParagraphStyleStandard (surround text with <text> and </text>)
     kADParagraphStyleBold (surround text with <bold> and </bold>)
  
- @param paragraphStyle The choosen standard paragraph style
+ @param paragraphStyle The choosen template paragraph style
  */
-- (id)initAsParagraphStyle:(kADParagraphStyle)paragraphStyle;
+- (id)initWithParagraphStyleTemplate:(kADParagraphStyle)paragraphStyle;
 
 
 #warning We want a set of standard tags to use. HTML based?
