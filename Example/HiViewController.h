@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ADTextViewDelegate.h"
 
-@interface HiViewController : UIViewController
+@interface HiViewController : UIViewController <ADTextViewDelegate>
 
 @end

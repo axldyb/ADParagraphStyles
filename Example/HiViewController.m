@@ -8,9 +8,12 @@
 
 #import "HiViewController.h"
 #import "ADAttributedTextView.h"
+#import "ADTextView.h"
 #import "ADParagraphStyle.h"
 
 @interface HiViewController ()
+
+@property (nonatomic, strong) UIScrollView *scrollView;
 
 @end
 
@@ -21,14 +24,16 @@
     [super viewDidLoad];
     
     // Add a scrollview to hold the text view
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [self.view addSubview:scrollView];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.scrollView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.scrollView];
     
     // The text we want to display
     NSString *stringToDisplay = [self theText];
     
     // Our text view to display text. Can be initialized to prefered size.
-    ADAttributedTextView *textView = [[ADAttributedTextView alloc] initWithFrame:CGRectMake(0, 0, 320, 700) text:stringToDisplay padding:15.0f];
+    ADTextView *textView = [[ADTextView alloc] initWithFrame:CGRectMake(0, 0, 320, 540) text:stringToDisplay padding:15.0f];
+    [textView setDelegate:self];
     
     // Adding background color
     textView.backgroundColor = [UIColor whiteColor];
@@ -77,14 +82,21 @@
     [textView addParagraphStyle:glyphParagraphStyle];
     
     // Add text view to our scroll view
-    [scrollView addSubview:textView];
-    scrollView.contentSize = textView.frame.size;
+    [self.scrollView addSubview:textView];
 }
 
 - (NSString *)theText
 {
     // This is the text we want to display. It has tags similar to HTML used by the paragraph styles to know where to apply themselfs.
     return @"<text><in>The Macintosh operating system has provided sophisticated text handling and typesetting capabilities from its beginning.</in>\nIn fact, these features sparked the desktop publishing revolution. <bold>Core Text</bold> is the most modern text-handling technology on the platform. It is designed speci<fi>f</fi>ically for OS X and is written in C, so it can be called from any language in the system. \n<citation>It is positioned as a core technology to provide consistent, high-performance text services to other frameworks throughout the system.</citation>\nThe <bold>Core Text</bold> API is accessible to applications that need to use it directly. <bold>Core Text</bold> resides in the Application Services umbrella framework <blue>(ApplicationServices)</blue> so that it is callable from both Carbon and Cocoa and has all of the lower-level services it needs. <bold>Core Text</bold> is not meant to replace the Cocoa text system, although it provides the underlying implementation for many <bold>Cocoa</bold> text technologies. If you can deal with high-level constructs, such as text views, you can probably use Cocoa. For this reason, Cocoa developers typically have no need to use <bold>Core Text</bold> directly. Carbon developers, on the other hand, will find <bold>Core Text</bold> faster and easier to use, in many cases, than preexisting OS X text layout and font APIs.</text>";
+}
+
+
+#pragma mark - ADTextView Delegate
+
+- (void)textView:(ADTextView *)textView didUpdateSize:(CGSize)size
+{
+    self.scrollView.contentSize = size;
 }
 
 - (void)didReceiveMemoryWarning
