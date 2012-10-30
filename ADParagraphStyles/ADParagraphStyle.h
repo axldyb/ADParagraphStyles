@@ -25,6 +25,16 @@ typedef enum {
 
 @interface ADParagraphStyle : NSObject
 
+/// ---------------------------------
+/// /** @name Attributes */
+/// ---------------------------------
+
+/**
+ All attributes in a dictionary.
+ Used by the text view for easy access.
+ */
+@property (nonatomic, strong) NSDictionary *attributes;
+
 
 /// ---------------------------------
 /// /** @name Apperance */
@@ -109,7 +119,8 @@ typedef enum {
  WARNING: This sets an equal kerning on every character!
  An upgrade for this would be to add an algorithm for 
  automatic kerninglinke InDesign's optical kerning. 
- For now this is the option we got.
+ 
+ For now this is the option we got. It acts very much like letterspacing.
  Default: 0.0
  */
 @property (nonatomic, assign) CGFloat kerning;
@@ -159,12 +170,12 @@ typedef enum {
 - (id)initWithParagraphStyleTemplate:(kADParagraphStyle)paragraphStyle;
 
 
-#warning We want a set of standard tags to use. HTML based?
+//#warning We want a set of standard tags to use. HTML based?
 
-#warning We want predefined paragraph styles to be able to use the most common styles fast
-
-#warning We want indents and custom placement plus plus
+#warning We want more predefined paragraph styles to be able to use the most common styles fast
 
 #warning We want kerning and letterspacing and all we can get of geeky typography
+
+#warning Collumn support
 
 @end

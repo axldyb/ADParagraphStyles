@@ -64,7 +64,7 @@
         {
             
             // Calculate range for style
-            CFRange paragraphRange = [self calculateRangeForParagraphStyle:paragraphStyle];
+            CFRange paragraphRange = [self calculateCFRangeForParagraphStyle:paragraphStyle];
             
             // Addig color
             UIColor *color = paragraphStyle.color;
@@ -82,7 +82,7 @@
             }
             
             // Glyphs
-            NSNumber *glyphs = [NSNumber numberWithFloat:paragraphStyle.kerning];
+            NSNumber *glyphs = [NSNumber numberWithFloat:paragraphStyle.glyphs];
             CFAttributedStringSetAttribute(styledString, paragraphRange, kCTCharacterShapeAttributeName, (__bridge CFTypeRef)(glyphs));
             
             // Add parameters
@@ -121,8 +121,8 @@
 
 #pragma mark - Calculate Paragraph Style Range
 
-- (CFRange)calculateRangeForParagraphStyle:(ADParagraphStyle *)paragraphStyle
-{   
+- (CFRange)calculateCFRangeForParagraphStyle:(ADParagraphStyle *)paragraphStyle
+{
     NSRange startTagRange = [self.text rangeOfString:paragraphStyle.startTag];
     NSInteger startTag = startTagRange.location;
     
@@ -193,10 +193,11 @@
 {
     // The string we want to draw
     CFAttributedStringRef attributedString = [self createStyledText];
+    //CFAttributedStringRef attributedString = (__bridge CFAttributedStringRef)[self attributedString];
     
     // Create the framesetter with the attributed string.
     CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString(attributedString);
-    CFRelease(attributedString);
+    //CFRelease(attributedString);
     
     // Set up frame
     CGRect drawingFrame;
@@ -244,8 +245,8 @@
         NSRange lineRange = NSMakeRange(lineStringRange.location, lineStringRange.length);
         NSString* lineString = [self.text substringWithRange:lineRange];
         static const unichar softHypen = 0x00AD;
-        NSLog(@"%@ -> %i", lineString, lineRange.length);
         unichar lastChar = [self.text characterAtIndex:lineRange.location + lineRange.length-1];
+        NSLog(@"%@ -> %i, Last: %hu", lineString, lineRange.length, lastChar);
         
         if(softHypen == lastChar) {
             NSMutableAttributedString* lineAttrString = [[attributedLine attributedSubstringFromRange:lineRange] mutableCopy];
@@ -255,8 +256,11 @@
             CTLineRef hyphenLine = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)lineAttrString);
             CTLineRef justifiedLine = CTLineCreateJustifiedLine(hyphenLine, 1.0, drawingFrame.size.width);
             
+            
             CTLineDraw(justifiedLine, context);
         } else {
+            
+            CGContextSetTextPosition(context, drawingFrame.origin.x, drawingFrame.origin.y * i);
             CTLineDraw(line, context);
         }
     }*/

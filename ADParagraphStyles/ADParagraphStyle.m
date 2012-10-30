@@ -60,9 +60,39 @@
             default:
                 break;
         }
-        
     }
     return self;
+}
+
+
+#pragma mark - Standard values
+
+- (NSDictionary *)attributes
+{
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    
+    [paragraphStyle setLineBreakMode:self.lineBreakMode];
+    [paragraphStyle setAlignment:self.textAlignment];
+    [paragraphStyle setLineSpacing:self.lineSpacing];
+    [paragraphStyle setFirstLineHeadIndent:self.firstLineIndent];
+    [paragraphStyle setHeadIndent:self.headIndent];
+    [paragraphStyle setTailIndent:self.tailIndent];
+    [paragraphStyle setParagraphSpacing:self.spacing];
+    [paragraphStyle setParagraphSpacingBefore:self.spacingBefore];
+    //[paragraphStyle setHyphenationFactor:1.0];
+    //[paragraphStyle setBaseWritingDirection:0.0];
+    
+    UIFont *paragraphStyleFont = [UIFont fontWithName:self.fontName size:self.fontSize];
+    NSNumber *kerning = [NSNumber numberWithFloat:self.kerning];
+    
+    NSMutableDictionary *paragraphStyleAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                     paragraphStyleFont,    NSFontAttributeName,
+                                                     self.color,            NSForegroundColorAttributeName,
+                                                     paragraphStyle,        NSParagraphStyleAttributeName,
+                                                     kerning,               NSKernAttributeName,
+                                                     nil];
+    
+    return paragraphStyleAttributes;
 }
 
 #pragma mark - Standard values

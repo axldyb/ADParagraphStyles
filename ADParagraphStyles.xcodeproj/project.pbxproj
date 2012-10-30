@@ -12,6 +12,7 @@
 		9C4903441631BB3B00D0C1E9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C49033E1631BB3B00D0C1E9 /* Default@2x.png */; };
 		9C4903451631BB3B00D0C1E9 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 9C49033F1631BB3B00D0C1E9 /* en.lproj */; };
 		9C4903461631BB3B00D0C1E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4903401631BB3B00D0C1E9 /* main.m */; };
+		9C98407E16401273003B48D1 /* ADTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C98407D16401272003B48D1 /* ADTextView.m */; };
 		9CA511C2163553A500AB2EE6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9CA511C1163553A500AB2EE6 /* README.md */; };
 		9CAEE1611631873A00B72E51 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CAEE1601631873A00B72E51 /* UIKit.framework */; };
 		9CAEE1631631873A00B72E51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CAEE1621631873A00B72E51 /* Foundation.framework */; };
@@ -32,6 +33,9 @@
 		9C49033F1631BB3B00D0C1E9 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
 		9C4903401631BB3B00D0C1E9 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9C92555516369BDE00C787EB /* ParagraphStyleConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParagraphStyleConstants.h; sourceTree = "<group>"; };
+		9C98407C16401272003B48D1 /* ADTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADTextView.h; path = ADParagraphStyles/ADTextView.h; sourceTree = "<group>"; };
+		9C98407D16401272003B48D1 /* ADTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADTextView.m; path = ADParagraphStyles/ADTextView.m; sourceTree = "<group>"; };
+		9C98408416401BF2003B48D1 /* ADTextViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADTextViewDelegate.h; path = ADParagraphStyles/ADTextViewDelegate.h; sourceTree = "<group>"; };
 		9CA511C1163553A500AB2EE6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		9CAEE15C1631873A00B72E51 /* ADParagraphStyles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADParagraphStyles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CAEE1601631873A00B72E51 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -125,9 +129,12 @@
 			children = (
 				9CF2C69C1631AF32009C8A53 /* ADAttributedTextView.h */,
 				9CF2C69D1631AF32009C8A53 /* ADAttributedTextView.m */,
+				9C98407C16401272003B48D1 /* ADTextView.h */,
+				9C98407D16401272003B48D1 /* ADTextView.m */,
 				9CF2C6A01631AF3C009C8A53 /* ADParagraphStyle.h */,
 				9CF2C6A11631AF3C009C8A53 /* ADParagraphStyle.m */,
 				9C92555516369BDE00C787EB /* ParagraphStyleConstants.h */,
+				9C98408416401BF2003B48D1 /* ADTextViewDelegate.h */,
 				9CAEE1671631873A00B72E51 /* Supporting Files */,
 			);
 			name = ADParagraphStyles;
@@ -205,6 +212,7 @@
 				9CF2C6CC1631B08D009C8A53 /* HiAppDelegate.m in Sources */,
 				9CF2C6CD1631B08D009C8A53 /* HiViewController.m in Sources */,
 				9C4903461631BB3B00D0C1E9 /* main.m in Sources */,
+				9C98407E16401273003B48D1 /* ADTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
