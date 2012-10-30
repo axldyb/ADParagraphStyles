@@ -13,6 +13,10 @@
 		9C4903451631BB3B00D0C1E9 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 9C49033F1631BB3B00D0C1E9 /* en.lproj */; };
 		9C4903461631BB3B00D0C1E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4903401631BB3B00D0C1E9 /* main.m */; };
 		9C98407E16401273003B48D1 /* ADTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C98407D16401272003B48D1 /* ADTextView.m */; };
+		9C98408816403688003B48D1 /* NSString+Hyphenate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C98408716403688003B48D1 /* NSString+Hyphenate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9C98408D164036C2003B48D1 /* hnjalloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 9C984089164036C2003B48D1 /* hnjalloc.c */; };
+		9C98408E164036C2003B48D1 /* hyphen.c in Sources */ = {isa = PBXBuildFile; fileRef = 9C98408B164036C2003B48D1 /* hyphen.c */; };
+		9C9840901640374D003B48D1 /* Hyphenate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9C98408F1640374D003B48D1 /* Hyphenate.bundle */; };
 		9CA511C2163553A500AB2EE6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9CA511C1163553A500AB2EE6 /* README.md */; };
 		9CAEE1611631873A00B72E51 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CAEE1601631873A00B72E51 /* UIKit.framework */; };
 		9CAEE1631631873A00B72E51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CAEE1621631873A00B72E51 /* Foundation.framework */; };
@@ -36,6 +40,13 @@
 		9C98407C16401272003B48D1 /* ADTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADTextView.h; path = ADParagraphStyles/ADTextView.h; sourceTree = "<group>"; };
 		9C98407D16401272003B48D1 /* ADTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADTextView.m; path = ADParagraphStyles/ADTextView.m; sourceTree = "<group>"; };
 		9C98408416401BF2003B48D1 /* ADTextViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADTextViewDelegate.h; path = ADParagraphStyles/ADTextViewDelegate.h; sourceTree = "<group>"; };
+		9C98408616403688003B48D1 /* NSString+Hyphenate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hyphenate.h"; sourceTree = "<group>"; };
+		9C98408716403688003B48D1 /* NSString+Hyphenate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hyphenate.m"; sourceTree = "<group>"; };
+		9C984089164036C2003B48D1 /* hnjalloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hnjalloc.c; sourceTree = "<group>"; };
+		9C98408A164036C2003B48D1 /* hnjalloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hnjalloc.h; sourceTree = "<group>"; };
+		9C98408B164036C2003B48D1 /* hyphen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hyphen.c; sourceTree = "<group>"; };
+		9C98408C164036C2003B48D1 /* hyphen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hyphen.h; sourceTree = "<group>"; };
+		9C98408F1640374D003B48D1 /* Hyphenate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Hyphenate.bundle; sourceTree = "<group>"; };
 		9CA511C1163553A500AB2EE6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		9CAEE15C1631873A00B72E51 /* ADParagraphStyles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADParagraphStyles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CAEE1601631873A00B72E51 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -67,6 +78,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C98408516403626003B48D1 /* Hyphenation */ = {
+			isa = PBXGroup;
+			children = (
+				9C98408616403688003B48D1 /* NSString+Hyphenate.h */,
+				9C98408716403688003B48D1 /* NSString+Hyphenate.m */,
+				9C984089164036C2003B48D1 /* hnjalloc.c */,
+				9C98408A164036C2003B48D1 /* hnjalloc.h */,
+				9C98408B164036C2003B48D1 /* hyphen.c */,
+				9C98408C164036C2003B48D1 /* hyphen.h */,
+				9C98408F1640374D003B48D1 /* Hyphenate.bundle */,
+			);
+			name = Hyphenation;
+			sourceTree = "<group>";
+		};
 		9CAEE1511631873A00B72E51 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +160,7 @@
 				9CF2C6A11631AF3C009C8A53 /* ADParagraphStyle.m */,
 				9C92555516369BDE00C787EB /* ParagraphStyleConstants.h */,
 				9C98408416401BF2003B48D1 /* ADTextViewDelegate.h */,
+				9C98408516403626003B48D1 /* Hyphenation */,
 				9CAEE1671631873A00B72E51 /* Supporting Files */,
 			);
 			name = ADParagraphStyles;
@@ -197,6 +223,7 @@
 				9C4903441631BB3B00D0C1E9 /* Default@2x.png in Resources */,
 				9C4903451631BB3B00D0C1E9 /* en.lproj in Resources */,
 				9CA511C2163553A500AB2EE6 /* README.md in Resources */,
+				9C9840901640374D003B48D1 /* Hyphenate.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +240,9 @@
 				9CF2C6CD1631B08D009C8A53 /* HiViewController.m in Sources */,
 				9C4903461631BB3B00D0C1E9 /* main.m in Sources */,
 				9C98407E16401273003B48D1 /* ADTextView.m in Sources */,
+				9C98408816403688003B48D1 /* NSString+Hyphenate.m in Sources */,
+				9C98408D164036C2003B48D1 /* hnjalloc.c in Sources */,
+				9C98408E164036C2003B48D1 /* hyphen.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import <CoreText/CoreText.h>
 #import "ADTextView.h"
+#import "NSString+Hyphenate.h"
 
 @implementation ADTextView
 
@@ -16,6 +17,8 @@
     self = [super initWithFrame:frame];
     if (self)
     {
+        NSLocale *en = [[NSLocale alloc] initWithLocaleIdentifier:@"en_GB"];
+        [text stringByHyphenatingWithLocale:en];
         self.rawText = text;
         self.frame = frame;
     }
@@ -185,29 +188,14 @@
     // Initialize a rectangular path.
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathAddRect(path, NULL, drawingFrame);
-    
-    /*
-    // Flip coordinates
-    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
-    CGContextTranslateCTM(context, 0, drawingFrame.size.height + (self.padding * 2));
-    CGContextScaleCTM(context, 1.0, -1.0);
-    */
      
     // Create the frame and draw it into the graphics context
     CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), path, NULL);
     
-    /*
-    CTFrameDraw(frame, context);
-    
-    CFRelease(framesetter);
-    CFRelease(path);
-    CFRelease(frame);
-    */
-    
+    // Line splitting
     CFArrayRef lines = CTFrameGetLines(frame);
     CFIndex i, total = CFArrayGetCount(lines);
     CGFloat y;
-    
     CGPoint origins[total];
     
     CTFrameGetLineOrigins(frame, CFRangeMake(0, total), origins);
@@ -215,11 +203,16 @@
     for (i = 0; i < total; i++)
     {
         CTLineRef line = (CTLineRef)CFArrayGetValueAtIndex(lines, i);
+
         y = drawingFrame.origin.y + drawingFrame.size.height - origins[i].y;
         CGContextSetTextMatrix(context, CGAffineTransformMakeScale(1.0f, -1.0f));
         CGContextSetTextPosition(context, drawingFrame.origin.x + origins[i].x, y);
         CTLineDraw(line, context);
     }
+    
+    CFRelease(framesetter);
+    CFRelease(path);
+    CFRelease(frame);
      
     UIGraphicsEndImageContext();
     
